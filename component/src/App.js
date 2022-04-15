@@ -1,11 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  const name = '리액트';
-  return (
-    <div className = "react">{name}</div>
-  );
+import React, {Component} from 'react';
+class App extends Component {
+  render() {
+    const name = "react";
+    return <div className = "react"> {name}</div>;
+  }
 }
 
 export default App;
