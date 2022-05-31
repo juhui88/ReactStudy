@@ -1,36 +1,35 @@
-import React, {useState, useEffect} from 'react';
+import React, {useReducer} from 'react';
+
+function reducer(state, action) {
+    return {
+        ...state,
+        [action.name]: action.value
+    };
+}
 
 const Info = () => {
-    const [name, setName] = useState("");
-    const [age, setAge] = useState("");
-
-    useEffect(() => {
-        console.log('effect');
-        console.log(name);
-        return () => {
-            console.log('cleanup');
-            console.log(name);
-        }
-    }, [name]);
-
-    const onChangeName = (e) => {
-        setName(e.target.value);
-    }
-    const onChangeAge = (e) => {
-        setAge(e.target.value);
-    }
+    const [state, dispatch] = useReducer(reducer, {
+        name:'',
+        age: ''
+    });
+    const {name, age} = state;
+    const onChange = e => {
+        dispatch(e.target);
+    };
 
     return (
         <div>
             <input 
+                name = "name"
                 placeholder='이름을 입력하세요'
-                onChange = {onChangeName}
+                onChange = {onChange}
                 value = {name}
             >
             </input>
             <input
+                name = "age"
                 placeholder='나이를 입력하세요'
-                onChange = {onChangeAge}
+                onChange = {onChange}
                 value = {age}
             >
             </input>
@@ -39,6 +38,7 @@ const Info = () => {
             <p> 나이 : {age}</p>
         </div>
     )
+
 }
 
 export default Info;
