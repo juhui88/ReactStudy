@@ -1,0 +1,17 @@
+.TodoTemplate {
+    margin: 100px auto;
+    width: 40vw;
+    border-radius: 5px;
+    background-color: white;
+    height: 60vh;
+}
+
+.app-title {
+    background-color: rgb(53, 181, 139);
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    height: 60px;
+    line-height: 60px;
+}

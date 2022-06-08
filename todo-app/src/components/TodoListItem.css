@@ -1,0 +1,27 @@
+.TodoListItem {
+    display: flex;
+    height:50px;
+    align-items: center;
+}
+
+.checkbox {
+    display: flex;
+    width:100%;
+    font-size: 20px;
+    margin-left:1vw;
+    
+    
+}
+.unchecked {
+    margin: auto 0 auto 0 ;
+    cursor: pointer;
+}
+.text {
+    margin-left:1vw;
+}
+
+.remove {
+    font-size: 20px;
+    margin-right: 1vw;
+}
+
