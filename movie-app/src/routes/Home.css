@@ -1,0 +1,13 @@
+body {
+    background-color: #e4e4e4;
+}
+
+.movies_wrap {
+    margin:5vw 5vw auto;
+
+}
+
+.movies{
+    display: flex;
+    flex-wrap: wrap;
+}

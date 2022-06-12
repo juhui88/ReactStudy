@@ -1,0 +1,34 @@
+.movie {
+    width:600px;
+    height: 370px;
+    margin:1vh auto 5vh auto;
+    background-color: white;
+    display: flex;
+    box-shadow: 5px 5px 5px 5px rgb(181, 181, 181);
+}
+img {
+    
+}
+.info {
+    overflow: hidden;
+    margin:5.5vh;
+}
+.info > h1{
+    margin:0;
+}
+.info > a {
+    text-decoration: none;
+    color:black
+}
+.info > ul{
+    list-style: none;
+    display: flex;
+    padding:0
+}
+.info > li {
+    margin-right: 1vh;
+}
+
+.info > li ,.info >  p {
+    color:rgb(173, 173, 173)
+}
