@@ -33,6 +33,7 @@ const App = () => {
         text,
         checked: false,
       };
+      console.log("onInsert");
       setTodos(todos.concat(todo));
       nextId.current += 1; // nextId 1 씩 더하기
     },

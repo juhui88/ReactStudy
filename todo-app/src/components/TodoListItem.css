@@ -12,9 +12,8 @@
     
     
 }
-.unchecked {
-    margin: auto 0 auto 0 ;
-    cursor: pointer;
+.checked {
+    text-decoration:line-through
 }
 .text {
     margin-left:1vw;
