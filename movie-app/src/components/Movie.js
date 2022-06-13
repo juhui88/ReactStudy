@@ -7,7 +7,7 @@ const Movie = ({id , coverImg, title, summary, genres}) => {
     return (
         <div className="movie">
             <img src = {coverImg}></img>
-            <div className="info">
+            <div className="movie-info">
                 <h1><Link to = {`/movie/${id}`}>{title}</Link> </h1>
                 <ul>
                 {genres.map( g => <li key = {g}> {g} </li>)}

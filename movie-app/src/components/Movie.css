@@ -6,29 +6,31 @@
     display: flex;
     box-shadow: 5px 5px 5px 5px rgb(181, 181, 181);
 }
-img {
+.movie > img {
     
 }
-.info {
+.movie-info {
     overflow: hidden;
     margin:5.5vh;
 }
-.info > h1{
+.movie-info > h1{
     margin:0;
 }
-.info > a {
+.movie-info > h1 > a {
     text-decoration: none;
-    color:black
+    color:black;
+    font-style: italic;
 }
-.info > ul{
+.movie-info > ul{
     list-style: none;
     display: flex;
     padding:0
 }
-.info > li {
+.movie-info > ul > li {
     margin-right: 1vh;
+    color:rgb(173, 173, 173);
 }
 
-.info > li ,.info >  p {
-    color:rgb(173, 173, 173)
+.movie-info >  p {
+    color:rgb(118, 118, 118)
 }
