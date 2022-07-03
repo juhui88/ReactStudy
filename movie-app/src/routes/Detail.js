@@ -8,16 +8,29 @@ const Detail = () => {
     const [Loading, setLoading] = useState(true);
     const [movie, setMovie] = useState(null);
     
+    /*const getMovie = async() => {
+        const json = await (
+            await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`))
+                .json();
+        setMovie(json.data.movie);
+        setLoading(false);
+    }*/
+
+    /*const getMovie = () => {
+        const response = axios.get(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`);
+        setMovie(response.data.data.movie);
+        setLoading(false);
+    }*/
+
     const getMovie = () => {
         axios.get(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
-            .then(response => response.json())
-            .then(json => {
-                setMovie(json.data.movie);
+            .then(response => {
+                setMovie(response.data.data.movie);
                 setLoading(false);
-            })
+            }) 
     }
 
-    useEffect( () => {getMovie();}, []);
+    useEffect( () => {getMovie()}, []);
     return (
         <div>
             {Loading ? <h1>"Loading..."</h1> : 
