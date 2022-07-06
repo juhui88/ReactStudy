@@ -1,13 +1,30 @@
-import React from 'react';
-import styled from 'styled-components';
-import Circle from './Circle';
+import React, {useState} from 'react';
 
 
 function App() {
+  const [value, setValue] = useState(""); 
+  // 처음 String형태 였으므로 이후에도 계속 String 이어야 오류가 안 남
+
+  const onChange = (e: React.FormEvent<HTMLInputElement>) => {
+    // 어떤 event를 받는지 알 수 있음
+    const {currentTarget: {value},} = e;
+    setValue(value);
+  }
+  const onSubmit = (e:React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("hello", value);
+  }
   return (
     <div>
-      <Circle borderColor = "yellow" bgColor = "teal"/>
-      <Circle text = "hi~" bgColor = "tomato"/>
+      <form onSubmit={onSubmit}>
+        <input 
+          type = "text" 
+          placeholder='username'
+          onChange={onChange}
+          value = {value}
+          />
+        <button>Log in</button>
+      </form>
     </div>
   );
 }
