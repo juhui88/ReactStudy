@@ -8,18 +8,26 @@ interface IForm {
     username: string;
     password: string;
     password1: string;
+    extraError?: string; 
   }
 
 function TodoList() {
-    const {register, watch, handleSubmit, formState : {errors}} = useForm<IForm>();
-    const onValid = (data:any) => {
-        console.log(data)
+    const {register, watch, handleSubmit, formState : {errors}, setError} = useForm<IForm>({
+        defaultValues: {
+            email: "@naver.com",
+        }
+    });
+    const onValid = (data:IForm) => {
+        if(data.password !== data.password1){
+            setError("password1", {message: "Password are not the same"}, {shouldFocus: true})
+        }
+        //setError("extraError", {message: "Serever offline"})
     }
     return (
         <div>
             <form style={{display:"flex",flexDirection: "column"}} onSubmit={handleSubmit(onValid)}>
                 <input {...register("email", {
-                        required: true ,
+                        required: "Email is required." ,
                         pattern: {
                             value: /^[A-Za-z0-9._%+-]+@naver.com$/,
                             message: "Only naver.com emails allowed",},
@@ -28,7 +36,10 @@ function TodoList() {
                 <span>{errors?.email?.message}</span>
                 
                 <input
-                    {...register("firstName", { required: "write here" , })}
+                    {...register("firstName", { required: "write here" ,validate: {
+                        noNico: (value) =>value.includes("nico") ? "no nicos allowed" : true,
+                        noNick: (value) =>value.includes("nick") ? "no nick allowed" : true,}
+                    })}
                     placeholder="First Name"
                 />
                 <span>{errors?.firstName?.message}</span>
@@ -63,6 +74,7 @@ function TodoList() {
                 />
                 <span>{errors?.password1?.message}</span>
                 <button>add</button>
+                <span>{errors?.extraError?.message}</span>
             </form>
         </div>
     )
