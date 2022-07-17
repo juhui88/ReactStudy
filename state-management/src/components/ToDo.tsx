@@ -6,24 +6,16 @@ function ToDo({text, category, id}:IToDo) {
     const setToDos = useSetRecoilState(toDoState);
     const onClick = (e:React.MouseEvent<HTMLButtonElement>) => {
         const {currentTarget: {name}, } = e
-        console.log(name)
         setToDos((prev) => prev.map((oldToDo) => {
             if(oldToDo.id === id) {
                 return {text, id, category: name as any};
             }
             return oldToDo;
         }))
-        /* setToDos((oldToDos) => {
-            const targetIndex = oldToDos.findIndex(toDo => toDo.id === id)
-            console.log(targetIndex)
-            const newToDo = { text, id, category: name as any};
-            return [
-                ...oldToDos.slice(0, targetIndex),
-                newToDo,
-                ...oldToDos.slice(targetIndex + 1),
-              ];
-        }) */
     };
+    const onDeletClick = (e:React.MouseEvent<HTMLButtonElement>) => {
+        setToDos((prev) => prev.filter((oldToDo) => oldToDo.id !== id))
+    }
     return (
         <li>
             <span>{text}</span>
@@ -42,6 +34,7 @@ function ToDo({text, category, id}:IToDo) {
                     Done
                 </button>
             )}
+            <button onClick={onDeletClick}>❌</button>
         </li>
     )
 }
