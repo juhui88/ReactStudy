@@ -7,10 +7,10 @@ import ToDo from "./ToDo";
 function TodoList() {
     const [category, setCategory] = useRecoilState(categoryState);
     const toDos = useRecoilValue(toDoSelector);
-    
+
     const onInput = (e:React.FormEvent<HTMLSelectElement>) => {
         const {currentTarget: {value}} = e
-        setCategory(value)
+        setCategory(value as any)
     }
     return (
         <div>
